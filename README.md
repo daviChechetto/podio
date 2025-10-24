@@ -19,18 +19,11 @@ A página renderiza um layout de classificação (leaderboard) com as seguintes 
 * Bootstrap 5
 * Font Awesome
 
-### Destaque para
+** Destaque para
 * Canvas Confete (by catdad)
   link -> https://github.com/catdad/canvas-confetti?tab=readme-ov-file
 
-## Como Rodar o Projeto
-
-**1. Para Visualizar (Online):**
-
-Basta acessar a URL publicada:
-[https://davichechetto.github.io/podio/](https://davichechetto.github.io/podio/)
-
-**2. Para Rodar Localmente:**
+## Como Rodar o Projeto Localmente
 
 1.  Clone ou baixe os arquivos para o seu computador.
 2.  Navegue até a pasta do projeto.
