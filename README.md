@@ -19,7 +19,7 @@ A página renderiza um layout de classificação (leaderboard) com as seguintes 
 * Bootstrap 5
 * Font Awesome
 
-** Destaque para
+### Destaque para
 * Canvas Confete (by catdad)
   link -> https://github.com/catdad/canvas-confetti?tab=readme-ov-file
 
