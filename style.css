@@ -1,0 +1,389 @@
+
+/* Animações */
+
+
+
+@keyframes aparecer-podio {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes aparecer-icone {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes comemorando {
+	0%,
+	100% {
+		transform: translateY(0) rotate(0);
+	}
+
+	10%, 50% {
+		transform: translateY(-8px) rotate(2.5deg);
+	}
+	20%, 40%, 60% {
+		transform: translateY(8px) rotate(0deg);
+	}
+	30%, 70%  {
+		transform: translateY(-8px) rotate(-2.5deg);
+	}
+	80% {
+		transform: translateY(6.4px) rotate(0deg);
+	}
+	90% {
+		transform: translateY(-6.4px) rotate(2.5deg);
+	}
+}
+@keyframes scroll-participantes {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-2090px);
+    }
+}
+@keyframes freiar-carrossel {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(-10px);
+    }
+}
+@keyframes acelerar-carrossel {
+    0% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+/* FIM Animações END */
+
+:root{
+    --delay-default: 250ms
+}
+
+body{
+    flex-direction: column;
+    height: auto;
+
+    &::before {
+        position: relative;
+        top: unset;
+        z-index: unset;
+    }
+
+    &::after {
+        position: unset;
+        bottom: unset;
+        z-index: unset;
+    }
+}
+
+#tituloPrincipal{
+    margin-block: 60px;
+
+    .titulo-principal{
+        font-family: "Alfa Slab One", sans-serif;
+        font-size: 5rem;
+        text-align: center;
+        text-align: center;
+        color: #1A1313;
+    
+    }
+    
+    .detalhe-estrela{
+        position: unset;
+        max-width: 8vw;
+        transform: rotate(0);
+        transition: var(--delay-default);
+        animation: piscar-estrela var(--delay-default) infinite;
+    
+        &:hover{
+            animation: pulsar-estrela calc(2 * var(--delay-default)) forwards;
+        }
+    }
+
+    .imagem-titulo-xsalada{
+        width: 100%;
+        max-height: 240px;
+    }
+    
+}
+
+#containerPodio{
+    margin-block: 60px;
+    
+    .titulo-podio{
+        font-family: "Alfa Slab One", sans-serif;
+        font-size: 3rem;
+        text-align: center;
+        color: #1A1313;
+        
+        margin-top: 60px;
+    }
+    .lista-podio{
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-areas: 'segundo primeiro terceiro';
+        justify-content: center;
+        align-items: end;
+        
+        margin-top: 60px;
+        margin-bottom: 0px;
+        padding: 0;
+        list-style: none;
+
+
+        .item-podio{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            
+            &:nth-child(1){
+                grid-area: primeiro;
+                
+                .logo-estabelecimento{
+                    animation: aparecer-podio 500ms 3000ms ease-in-out forwards;
+                }
+                .pulpito{
+                    height: 130px;
+                    z-index: 1;
+                    border-radius: 15px 15px 0px 0px;
+                }
+            }
+            &:nth-child(2){
+                grid-area: segundo;
+                
+                .logo-estabelecimento{
+                    animation: aparecer-podio 500ms 1500ms ease-in-out forwards;
+                }
+                .pulpito{
+                    height: 115px;
+                    box-shadow: inset -7px 0px 8px -5px rgba(0,0,0,0.25);
+                    border-radius: 15px 0px 0px 0px;
+                }
+            }
+            &:nth-child(3){
+                grid-area: terceiro;
+
+                .logo-estabelecimento{
+                    animation: aparecer-podio 500ms 500ms ease-in-out forwards;
+                }
+                .pulpito{
+                    height: 100px;
+                    box-shadow: inset 7px 0px 8px -5px rgba(0,0,0,0.25);
+                    border-radius: 0px 15px 0px 0px;
+                }
+            }
+            
+            .logo-estabelecimento{
+                opacity: 0;
+
+                &.comemoracao-podio{
+                    opacity: 1;
+                    animation: comemorando 2s ease  normal forwards;
+                }
+            }
+
+            .pulpito{
+                position: relative;
+
+                font-family: "Alfa Slab One", sans-serif;
+                font-size: 2.5rem;
+                font-weight: bold;
+                text-align: center;
+
+                padding: 20px;
+    
+                width: 200px;
+    
+                background-color: #f0f0f0;
+                color: #1A1313;
+            }
+        }
+    }
+    .lista-sub-ranking{
+        counter-reset: list-counter 3;
+
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        font-family: "Alfa Slab One", sans-serif;
+        width: 100%;
+        
+        padding: 30px;
+        border-radius: 16px;
+        margin: 0;
+
+        background-color: #1a1313;
+
+        .item-ranking{
+            counter-increment: list-counter;
+            position: relative;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            
+            padding: 10px 30px;
+            border-radius: 25px;
+            
+            transition: var(--delay-default);
+            color: #1A1313;
+
+            &:hover{
+                background-color: #1a131317;
+            }
+
+            &::before{
+                content: counter(list-counter) "º";
+                font-size: 1.5rem;
+                color: white;
+                width: 40px;
+            }
+
+            .conteudo-item{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo-estabelecimento{
+                width: 75px;
+                aspect-ratio: 1 / 1;
+                object-fit: contain;
+
+                border-radius: 8px;
+                margin-right: 30px;
+            }
+            .nome-estabelecimento{
+                display: inline;
+                font-family: "Alfa Slab One", sans-serif;
+                color: white;
+                font-size: 1rem;
+
+                width: max-content;
+                margin: 0;
+            }
+            .contatos-estabelecimento{
+                margin-left: auto;
+                display: flex;
+                gap: 30px;
+
+                
+                
+                .links-estabelecimento{
+                    position: relative;
+
+                    font-size: 1.5rem;
+                    text-align: center;
+                    place-content: center;
+                    color: white;
+                    text-decoration: none;
+
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 10px;
+                    overflow: hidden;
+
+                    transition: var(--delay-default);
+
+                    i{
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        z-index: 0;
+                        transform: translate(-50%, 0%);
+
+                        opacity: 0;
+                        width: 50px;
+                        height: 50px;
+
+                        pointer-events: none;
+
+                        background: #f09433;
+                        background: -moz-linear-gradient(
+                            45deg,
+                            #f09433 0%,
+                            #e6683c 25%,
+                            #dc2743 50%,
+                            #cc2366 75%,
+                            #bc1888 100%
+                        );
+                        background: -webkit-linear-gradient(
+                            45deg,
+                            #f09433 0%,
+                            #e6683c 25%,
+                            #dc2743 50%,
+                            #cc2366 75%,
+                            #bc1888 100%
+                        );
+                        background: linear-gradient(
+                            45deg,
+                            #f09433 0%,
+                            #e6683c 25%,
+                            #dc2743 50%,
+                            #cc2366 75%,
+                            #bc1888 100%
+                        );
+                        border-radius: 50px;
+                        transition: var(--delay-default) ease-in-out;
+                    }
+
+                    &:hover{
+                        
+                        color: white;
+                        border-radius: 50px;
+
+                        i{
+                            animation: apardecer-icone var(--delay-default) forwards;
+                        }
+
+                        &::before{
+                            opacity: 1;
+                        }
+                    }
+                    &:active{
+                        transform: scale(0.9);
+                    }
+                }
+            }
+        }
+    }
+    .logo-estabelecimento{
+        width: 150px;
+        height: auto;
+        border-radius: 12px;
+    }
+}
