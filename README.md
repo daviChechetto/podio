@@ -1,4 +1,4 @@
-# Projeto Pódio (Podio)
+# Projeto Pódio
 
 Este projeto exibe uma página web estática que funciona como um pódio ou placar de líderes, hospedada no GitHub Pages.
 
